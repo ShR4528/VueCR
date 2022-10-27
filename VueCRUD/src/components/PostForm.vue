@@ -1,51 +1,52 @@
 <template>
-   <form @submit.prevent>
-      <my-input
-       v-model="post.title"
-       
-       type="text" 
-       placeholder="Nazvanie"/>
+    <form @submit.prevent>
+        <h4>Creating Post</h4>
 
+      <input 
+        v-model="post.title"
+        type="text" 
+        placeholder="Title" />
 
-      <my-input 
+      <input 
         v-model="post.body"
-         type="text" 
-         placeholder="Opisania"/>
+        type="text" 
+        placeholder="Description" />
 
-      <my-button 
-      style="aligh-self: flex-end"
-       @click="createPost">
+     <my-button 
+     class="btn"
+     @click="createPost"
+       >
        Create
-       </my-button>
-    </form> 
+      </my-button>
+      </form>
 </template>
 
 <script>
 export default {
    data() {
         return {
-            post: {
-                title: '',
-                body: ''
+           post: {
+            title: '',
+            body: ''
+           }
+        }
+       },
+       methods: {
+        createPost() {
+            this.post.id = Date.now();
+            this.$emit('create', this.post)
+            this.post = {
+            title: '',
+            body: ''
             }
         }
-    },
-    methods: {
-        createPost() {
-    
-    this.post.id = Date.now(),
-    this.$emit('create', this.post, 'second param', '3 param')
-    this.title = '';
-    this.body = '';
-        }
-    },
-}
+       } 
+    }
 </script>
 
-<style  scoped>
-.form {
-  display: flex;
-  flex-direction: column;
+<style scoped>
+form {
+    display: flex;
+    flex-direction: column;
 }
-
 </style>

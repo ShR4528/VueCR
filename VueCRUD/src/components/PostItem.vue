@@ -1,11 +1,71 @@
 <template>
+<div class="post">
+  <div>
+    <div><strong>Title: </strong> {{ post.title }}</div> 
+    <div><strong>Description: </strong> {{ post.body }}</div>
+  </div> 
+  <div class="post__btns">
+  <my-button
+  @click="$emit('remove', post)" 
+  >Delete</my-button>
+  </div>
+</div>
+</template>
+
+<script>
+  export default {
+    props: {
+      post: {
+        type: Object,
+        required: true,
+      }
+    }
+  }
+</script>
+
+<style scoped>
+.post {
+  margin-top: 15px;
+  padding: 15px;
+  border: 2px solid teal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
   <div class="post">
     <div>
       <div>{{ post.id }}</div>
-      <div><strong>Название:</strong> {{ post.title }}</div>
-      <div><strong>Описание:</strong> {{ post.body }}</div>
+      <div><strong>Н:</strong> {{ post.title }}</div>
+      <div><strong>О:</strong> {{ post.body }}</div>
     </div>
     <div class="post__btns">
+      
       <my-button
         @click="$router.push(`/posts/${post.id}`)"
       >
@@ -14,7 +74,7 @@
      <my-button
        @click="$emit('remove', post)"
      >
-       Удалить
+       Delete
      </my-button>
     </div>
   </div>
@@ -22,7 +82,7 @@
 
 <script>
 export default {
-  props: {
+props: {
     post: {
       type: Object,
       required: true,
@@ -34,7 +94,7 @@ export default {
 <style scoped>
 .post {
   padding: 15px;
-  border: 2px solid teal;
+  border: 2px solid rgb(20, 192, 28);
   margin-top: 15px;
   display: flex;
   align-items: center;
@@ -44,4 +104,4 @@ export default {
   display: flex;
 }
 </style>
-    
+     -->

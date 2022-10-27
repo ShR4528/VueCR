@@ -1,26 +1,27 @@
 <template>
     <button class="btn">
     <slot></slot>
-
-    </button>
+ </button>
 
 
 </template>
 
 <script>
 export default {
-      name: 'my-button',
+    name:'my-button'
        
     }
 </script>
 
 <style scoped>
 .btn {
-  margin-top: 20px;
-  align-self: flex-end;
+  display: flex;
+  margin-top: 10px;
   padding: 10px 15px;
   background-color: none;
+  align-self: flex-end;
+  
   color: rgb(12, 226, 226);
-  border:  2px solid teal;
+  border:  2px solid rgb(8, 18, 10);
 }
 </style>
