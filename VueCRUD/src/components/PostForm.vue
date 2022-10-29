@@ -2,12 +2,13 @@
     <form @submit.prevent>
         <h4>Creating Post</h4>
 
-      <input 
+      <my-input 
+        v-focus
         v-model="post.title"
         type="text" 
         placeholder="Title" />
 
-      <input 
+      <my-input 
         v-model="post.body"
         type="text" 
         placeholder="Description" />
@@ -37,11 +38,11 @@ export default {
             this.$emit('create', this.post)
             this.post = {
             title: '',
-            body: ''
+            body: '',
             }
-        }
-       } 
-    }
+         }
+       }
+}
 </script>
 
 <style scoped>
